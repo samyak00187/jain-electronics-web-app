@@ -90,10 +90,10 @@ export default function ContactPage() {
       <Header />
 
       {/* Hero */}
-      <section className="bg-gradient-to-r from-red-600 to-red-700 text-white py-12">
+      <section className="bg-gradient-to-r from-black to-gray-900 text-white py-12 border-b-4 border-yellow-400">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-2">Get in Touch</h1>
-          <p className="text-red-100 text-lg">
+          <h1 className="text-4xl md:text-5xl font-bold mb-2 text-yellow-400">Get in Touch</h1>
+          <p className="text-gray-200 text-lg font-semibold">
             We're here to help. Contact us anytime!
           </p>
         </div>
@@ -102,57 +102,57 @@ export default function ContactPage() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {/* Contact Info Cards */}
-          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+          <div className="bg-white rounded-lg p-6 border-2 border-black hover:shadow-lg hover:shadow-yellow-400/50 transition-all">
             <div className="flex items-start gap-4">
-              <div className="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Phone className="w-6 h-6 text-red-600" />
+              <div className="bg-yellow-400 border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Phone className="w-6 h-6 text-black font-bold" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Phone</h3>
+                <h3 className="font-bold text-black mb-1">Phone</h3>
                 <a
                   href={`tel:${SHOP_CONFIG.contact}`}
-                  className="text-red-600 hover:underline font-medium"
+                  className="text-yellow-600 hover:underline font-semibold"
                 >
                   {SHOP_CONFIG.contact}
                 </a>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-700 font-semibold mt-2">
                   Mon - Sat, 9AM - 6PM IST
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+          <div className="bg-white rounded-lg p-6 border-2 border-black hover:shadow-lg hover:shadow-yellow-400/50 transition-all">
             <div className="flex items-start gap-4">
-              <div className="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6 text-red-600" />
+              <div className="bg-yellow-400 border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-6 h-6 text-black font-bold" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
-                <p className="text-gray-700 text-sm font-medium">
+                <h3 className="font-bold text-black mb-1">Address</h3>
+                <p className="text-black text-sm font-semibold">
                   {SHOP_CONFIG.address}
                 </p>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-700 font-semibold mt-2">
                   Rajasthan, India
                 </p>
               </div>
             </div>
           </div>
 
-          <div className="bg-gray-50 rounded-lg p-6 border border-gray-200">
+          <div className="bg-white rounded-lg p-6 border-2 border-black hover:shadow-lg hover:shadow-yellow-400/50 transition-all">
             <div className="flex items-start gap-4">
-              <div className="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Mail className="w-6 h-6 text-red-600" />
+              <div className="bg-yellow-400 border-2 border-black w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Mail className="w-6 h-6 text-black font-bold" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
+                <h3 className="font-bold text-black mb-1">Email</h3>
                 <a
                   href="mailto:info@jainelectronics.com"
-                  className="text-red-600 hover:underline font-medium text-sm"
+                  className="text-yellow-600 hover:underline font-semibold text-sm"
                 >
                   info@jainelectronics.com
                 </a>
-                <p className="text-sm text-gray-600 mt-2">
+                <p className="text-sm text-gray-700 font-semibold mt-2">
                   We'll respond within 24 hours
                 </p>
               </div>

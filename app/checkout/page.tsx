@@ -52,8 +52,8 @@ export default function CheckoutPage() {
       <div className="min-h-screen bg-white">
         <Header />
         <div className="max-w-7xl mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Your cart is empty</h1>
-          <Button asChild>
+          <h1 className="text-2xl font-bold text-black mb-4">Your cart is empty</h1>
+          <Button asChild className="bg-yellow-400 text-black border-2 border-yellow-400 hover:bg-yellow-300 font-bold">
             <Link href="/shop">Continue Shopping</Link>
           </Button>
         </div>
@@ -124,19 +124,19 @@ export default function CheckoutPage() {
             <div key={s.key} className="flex-1">
               <div className="flex items-center">
                 <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold ${
+                  className={`w-10 h-10 rounded-full flex items-center justify-center font-bold border-2 ${
                     s.key === current
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-yellow-400 text-black border-yellow-400'
                       : steps.indexOf(s) < steps.findIndex((st) => st.key === current)
-                        ? 'bg-green-600 text-white'
-                        : 'bg-gray-200 text-gray-600'
+                        ? 'bg-green-600 text-white border-green-600'
+                        : 'bg-gray-200 text-gray-600 border-gray-200'
                   }`}
                 >
                   {steps.indexOf(s) + 1}
                 </div>
                 {idx < steps.length - 1 && (
                   <div
-                    className={`flex-1 h-1 mx-2 ${
+                    className={`flex-1 h-2 mx-2 ${
                       steps.indexOf(s) < steps.findIndex((st) => st.key === current)
                         ? 'bg-green-600'
                         : 'bg-gray-200'
@@ -144,7 +144,7 @@ export default function CheckoutPage() {
                   />
                 )}
               </div>
-              <p className="text-xs font-medium text-gray-600 mt-2 text-center">{s.label}</p>
+              <p className="text-xs font-bold text-black mt-2 text-center">{s.label}</p>
             </div>
           ))}
         </div>
@@ -153,7 +153,7 @@ export default function CheckoutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Header />
 
       <div className="max-w-5xl mx-auto px-4 py-8">

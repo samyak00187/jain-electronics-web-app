@@ -12,17 +12,17 @@ export function Header() {
   const { itemCount } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white border-b-2 border-yellow-400">
       {/* Top Info Bar */}
-      <div className="bg-red-600 text-white text-sm py-2">
+      <div className="bg-black text-white text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           <div className="flex gap-4 text-xs md:text-sm">
             <div className="flex items-center gap-1">
-              <Phone className="w-4 h-4" />
+              <Phone className="w-4 h-4 text-yellow-400" />
               <span>{SHOP_CONFIG.contact}</span>
             </div>
             <div className="hidden md:flex items-center gap-1">
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4 text-yellow-400" />
               <span>Bijoliya, Rajasthan</span>
             </div>
           </div>
@@ -34,12 +34,12 @@ export function Header() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="bg-red-600 text-white rounded-lg p-2 font-bold">
+            <div className="bg-black text-yellow-400 rounded-lg p-2 font-bold border-2 border-yellow-400">
               JE
             </div>
             <div className="hidden md:block">
-              <h1 className="font-bold text-lg text-gray-900">{SHOP_CONFIG.name}</h1>
-              <p className="text-xs text-gray-600">Power Tools & Electronics</p>
+              <h1 className="font-bold text-lg text-black">{SHOP_CONFIG.name}</h1>
+              <p className="text-xs text-gray-700">Power Tools & Electronics</p>
             </div>
           </Link>
 
@@ -49,29 +49,29 @@ export function Header() {
               <input
                 type="text"
                 placeholder="Search products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white text-black"
               />
-              <Search className="absolute right-3 top-2.5 text-gray-400 w-5 h-5" />
+              <Search className="absolute right-3 top-2.5 text-black w-5 h-5" />
             </div>
           </div>
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            <Link href="/admin" className="hidden md:inline-block text-sm font-medium text-gray-700 hover:text-red-600">
+            <Link href="/admin" className="hidden md:inline-block text-sm font-semibold text-black hover:text-yellow-600">
               Admin
             </Link>
             <Link href="/cart" className="relative">
-              <Button variant="outline" size="icon" className="relative">
-                <ShoppingCart className="w-5 h-5" />
+              <Button variant="outline" size="icon" className="relative border-2 border-black hover:bg-yellow-400">
+                <ShoppingCart className="w-5 h-5 text-black" />
                 {itemCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+                  <span className="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
                     {itemCount}
                   </span>
                 )}
               </Button>
             </Link>
             <button
-              className="md:hidden"
+              className="md:hidden text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
@@ -85,15 +85,15 @@ export function Header() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t">
+          <div className="md:hidden mt-4 pb-4 border-t-2 border-black">
             <div className="mb-4 mt-4">
               <input
                 type="text"
                 placeholder="Search products..."
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+                className="w-full px-4 py-2 border-2 border-black rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 bg-white text-black"
               />
             </div>
-            <Link href="/admin" className="block text-sm font-medium text-gray-700 hover:text-red-600 py-2">
+            <Link href="/admin" className="block text-sm font-semibold text-black hover:text-yellow-600 py-2">
               Admin Panel
             </Link>
           </div>
@@ -101,22 +101,22 @@ export function Header() {
       </div>
 
       {/* Navigation */}
-      <div className="bg-gray-50 border-t border-gray-200">
+      <div className="bg-gray-100 border-t-2 border-black">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-6 overflow-x-auto">
-            <Link href="/shop?category=Power%20Tools" className="py-3 text-sm font-medium text-gray-700 hover:text-red-600 whitespace-nowrap border-b-2 border-transparent hover:border-red-600">
+            <Link href="/shop?category=Power%20Tools" className="py-3 text-sm font-semibold text-black hover:text-yellow-600 whitespace-nowrap border-b-4 border-transparent hover:border-yellow-400">
               Power Tools
             </Link>
-            <Link href="/shop?category=Electrical%20Items" className="py-3 text-sm font-medium text-gray-700 hover:text-red-600 whitespace-nowrap border-b-2 border-transparent hover:border-red-600">
+            <Link href="/shop?category=Electrical%20Items" className="py-3 text-sm font-semibold text-black hover:text-yellow-600 whitespace-nowrap border-b-4 border-transparent hover:border-yellow-400">
               Electrical Items
             </Link>
-            <Link href="/shop?category=Components" className="py-3 text-sm font-medium text-gray-700 hover:text-red-600 whitespace-nowrap border-b-2 border-transparent hover:border-red-600">
+            <Link href="/shop?category=Components" className="py-3 text-sm font-semibold text-black hover:text-yellow-600 whitespace-nowrap border-b-4 border-transparent hover:border-yellow-400">
               Components
             </Link>
-            <Link href="/shop?category=Other%20Electronics" className="py-3 text-sm font-medium text-gray-700 hover:text-red-600 whitespace-nowrap border-b-2 border-transparent hover:border-red-600">
+            <Link href="/shop?category=Other%20Electronics" className="py-3 text-sm font-semibold text-black hover:text-yellow-600 whitespace-nowrap border-b-4 border-transparent hover:border-yellow-400">
               Other Electronics
             </Link>
-            <Link href="/contact" className="py-3 text-sm font-medium text-gray-700 hover:text-red-600 whitespace-nowrap border-b-2 border-transparent hover:border-red-600">
+            <Link href="/contact" className="py-3 text-sm font-semibold text-black hover:text-yellow-600 whitespace-nowrap border-b-4 border-transparent hover:border-yellow-400">
               Contact Us
             </Link>
           </div>

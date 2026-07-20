@@ -33,21 +33,21 @@ export default function CartPage() {
       <Header />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
-          <p className="text-gray-600">{items.length} item{items.length !== 1 ? 's' : ''} in your cart</p>
+        <div className="mb-8 pb-4 border-b-2 border-black">
+          <h1 className="text-3xl md:text-4xl font-bold text-black mb-2">Shopping Cart</h1>
+          <p className="text-gray-700 font-semibold">{items.length} item{items.length !== 1 ? 's' : ''} in your cart</p>
         </div>
 
         {cartItems.length === 0 ? (
           <div className="text-center py-16">
             <div className="mb-6">
-              <div className="bg-gray-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="bg-yellow-400 border-2 border-black w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-4xl">🛒</span>
               </div>
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Your cart is empty</h2>
-            <p className="text-gray-600 mb-6">Start shopping to add items to your cart</p>
-            <Button asChild>
+            <h2 className="text-2xl font-bold text-black mb-2">Your cart is empty</h2>
+            <p className="text-gray-700 font-semibold mb-6">Start shopping to add items to your cart</p>
+            <Button asChild className="bg-yellow-400 text-black border-2 border-yellow-400 hover:bg-yellow-300 font-bold">
               <Link href="/shop">
                 Continue Shopping <ArrowRight className="w-4 h-4 ml-2" />
               </Link>
@@ -57,27 +57,27 @@ export default function CartPage() {
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2">
-              <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+              <div className="bg-white rounded-lg border-2 border-black overflow-hidden">
                 {cartItems.map((item) => (
-                  <div key={item.productId} className="p-4 border-b border-gray-200 last:border-b-0">
+                  <div key={item.productId} className="p-4 border-b-2 border-black last:border-b-0">
                     <div className="flex gap-4">
                       {/* Product Image */}
-                      <div className="bg-gray-100 w-24 h-24 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-xs text-center text-gray-400 px-2">
+                      <div className="bg-gray-200 border-2 border-black w-24 h-24 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-xs text-center text-gray-600 px-2 font-semibold">
                           {item.product?.name || 'Product'}
                         </span>
                       </div>
 
                       {/* Product Details */}
                       <div className="flex-1">
-                        <Link href={`/product/${item.productId}`} className="font-semibold text-gray-900 hover:text-red-600 mb-1 block">
+                        <Link href={`/product/${item.productId}`} className="font-bold text-black hover:text-yellow-600 mb-1 block">
                           {item.product?.name || 'Unknown Product'}
                         </Link>
-                        <p className="text-sm text-gray-600 mb-3">
+                        <p className="text-sm text-gray-700 font-semibold mb-3">
                           SKU: {item.productId}
                         </p>
                         <div className="flex items-center justify-between">
-                          <span className="font-bold text-lg text-red-600">₹{item.price}</span>
+                          <span className="font-bold text-lg text-yellow-600">₹{item.price}</span>
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => updateQuantity(item.productId, item.quantity - 1)}
