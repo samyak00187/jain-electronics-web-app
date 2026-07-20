@@ -13,23 +13,23 @@ import { ChevronDown } from 'lucide-react';
 function ProductCard({ product }: { product: typeof products[0] }) {
   return (
     <Link href={`/product/${product.id}`}>
-      <div className="bg-white rounded-lg border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow h-full">
-        <div className="bg-gray-100 h-48 flex items-center justify-center text-gray-400">
-          <span className="text-center px-2">{product.name}</span>
+      <div className="bg-white rounded-lg border-2 border-black overflow-hidden hover:shadow-xl hover:shadow-yellow-400/50 transition-all duration-300 transform hover:-translate-y-1 h-full">
+        <div className="bg-gray-200 h-48 flex items-center justify-center text-gray-600">
+          <span className="text-center px-2 font-semibold">{product.name}</span>
         </div>
         <div className="p-4">
-          <span className="inline-block text-xs font-semibold text-red-600 bg-red-50 px-2 py-1 rounded mb-2">
+          <span className="inline-block text-xs font-bold text-black bg-yellow-400 px-3 py-1 rounded mb-2">
             {product.category}
           </span>
-          <h3 className="font-semibold text-gray-900 line-clamp-2 mb-2 text-sm">
+          <h3 className="font-bold text-black line-clamp-2 mb-2 text-sm">
             {product.name}
           </h3>
-          <p className="text-xs text-gray-600 mb-3 line-clamp-2">
+          <p className="text-xs text-gray-700 mb-3 line-clamp-2">
             {product.description}
           </p>
           <div className="flex justify-between items-center">
-            <span className="font-bold text-red-600 text-lg">₹{product.price}</span>
-            <span className={`text-xs ${product.stock > 10 ? 'text-green-600' : product.stock > 0 ? 'text-orange-600' : 'text-red-600'}`}>
+            <span className="font-bold text-yellow-600 text-lg">₹{product.price}</span>
+            <span className={`text-xs font-semibold ${product.stock > 10 ? 'text-green-700' : product.stock > 0 ? 'text-yellow-700' : 'text-red-700'}`}>
               {product.stock > 0 ? `${product.stock} in stock` : 'Out of stock'}
             </span>
           </div>
@@ -74,23 +74,23 @@ function ShopPageContent() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         {/* Breadcrumb */}
-        <div className="mb-6 flex gap-2 text-sm text-gray-600">
-          <Link href="/" className="hover:text-red-600">Home</Link>
-          <span>/</span>
-          <span className="text-gray-900 font-medium">Shop</span>
+        <div className="mb-6 flex gap-2 text-sm text-gray-700 font-semibold">
+          <Link href="/" className="hover:text-yellow-600">Home</Link>
+          <span className="text-black">/</span>
+          <span className="text-black">Shop</span>
           {category && (
             <>
-              <span>/</span>
-              <span className="text-gray-900 font-medium">{category}</span>
+              <span className="text-black">/</span>
+              <span className="text-black">{category}</span>
             </>
           )}
         </div>
 
-        <div className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+        <div className="mb-8 pb-4 border-b-2 border-black">
+          <h1 className="text-3xl md:text-4xl font-bold text-black mb-2">
             {category || 'All Products'}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-gray-700 font-semibold">
             {filteredProducts.length} products found
           </p>
         </div>
@@ -98,18 +98,18 @@ function ShopPageContent() {
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Filters Sidebar */}
           <div className="lg:col-span-1">
-            <div className="bg-gray-50 rounded-lg p-6 sticky top-32">
-              <h3 className="font-bold text-lg mb-4">Filters</h3>
+            <div className="bg-white border-2 border-black rounded-lg p-6 sticky top-32">
+              <h3 className="font-bold text-lg mb-4 text-black">Filters</h3>
 
               {/* Categories */}
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Categories</h4>
+              <div className="mb-6 pb-6 border-b-2 border-gray-300">
+                <h4 className="font-bold text-black mb-3">Categories</h4>
                 <div className="space-y-2">
-                  <Link href="/shop" className={`block text-sm py-2 ${!category ? 'text-red-600 font-semibold' : 'text-gray-600 hover:text-red-600'}`}>
+                  <Link href="/shop" className={`block text-sm py-2 font-semibold ${!category ? 'text-yellow-600' : 'text-gray-700 hover:text-yellow-600'}`}>
                     All Categories
                   </Link>
                   {SHOP_CONFIG.categories.map((cat) => (
-                    <Link key={cat} href={`/shop?category=${cat}`} className={`block text-sm py-2 ${category === cat ? 'text-red-600 font-semibold' : 'text-gray-600 hover:text-red-600'}`}>
+                    <Link key={cat} href={`/shop?category=${cat}`} className={`block text-sm py-2 font-semibold ${category === cat ? 'text-yellow-600' : 'text-gray-700 hover:text-yellow-600'}`}>
                       {cat}
                     </Link>
                   ))}
@@ -117,29 +117,29 @@ function ShopPageContent() {
               </div>
 
               {/* Price Range */}
-              <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Price Range</h4>
+              <div className="mb-6 pb-6 border-b-2 border-gray-300">
+                <h4 className="font-bold text-black mb-3">Price Range</h4>
                 <div className="space-y-3">
                   <div>
-                    <label className="text-xs text-gray-600">Min: ₹{priceRange[0]}</label>
+                    <label className="text-xs font-semibold text-black">Min: ₹{priceRange[0]}</label>
                     <input
                       type="range"
                       min="0"
                       max="10000"
                       value={priceRange[0]}
                       onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
-                      className="w-full"
+                      className="w-full accent-yellow-400"
                     />
                   </div>
                   <div>
-                    <label className="text-xs text-gray-600">Max: ₹{priceRange[1]}</label>
+                    <label className="text-xs font-semibold text-black">Max: ₹{priceRange[1]}</label>
                     <input
                       type="range"
                       min="0"
                       max="10000"
                       value={priceRange[1]}
                       onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-                      className="w-full"
+                      className="w-full accent-yellow-400"
                     />
                   </div>
                 </div>
@@ -147,14 +147,14 @@ function ShopPageContent() {
 
               {/* Stock Status */}
               <div className="mb-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Availability</h4>
+                <h4 className="font-bold text-black mb-3">Availability</h4>
                 <div className="space-y-2">
-                  <label className="flex items-center gap-2 text-sm">
-                    <input type="checkbox" className="w-4 h-4" defaultChecked readOnly />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+                    <input type="checkbox" className="w-4 h-4 accent-yellow-400" defaultChecked readOnly />
                     <span>In Stock</span>
                   </label>
-                  <label className="flex items-center gap-2 text-sm">
-                    <input type="checkbox" className="w-4 h-4" readOnly />
+                  <label className="flex items-center gap-2 text-sm font-semibold text-gray-700">
+                    <input type="checkbox" className="w-4 h-4 accent-yellow-400" readOnly />
                     <span>Out of Stock</span>
                   </label>
                 </div>
@@ -165,15 +165,15 @@ function ShopPageContent() {
           {/* Products Grid */}
           <div className="lg:col-span-3">
             {/* Sort */}
-            <div className="mb-6 flex justify-between items-center">
-              <span className="text-sm text-gray-600">
+            <div className="mb-6 flex justify-between items-center pb-4 border-b-2 border-black">
+              <span className="text-sm font-semibold text-black">
                 Showing {filteredProducts.length} results
               </span>
               <div className="relative">
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="appearance-none px-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="appearance-none px-4 py-2 border-2 border-black rounded-lg text-sm font-semibold text-black bg-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 >
                   <option value="featured">Featured</option>
                   <option value="price-low">Price: Low to High</option>
